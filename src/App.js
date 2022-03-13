@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AddUser from "./components/AddUser";
 import DisplayUser from "./components/DisplayUsers";
+import Card from "./components/Card";
 import "./App.css";
 
 function App() {
@@ -13,13 +14,17 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <AddUser onAddingNewUser={addNewUserHandler} />
+        <Card>
+          <AddUser onAddingNewUser={addNewUserHandler} />
+        </Card>
         <br />
-        {myUsers.map((user, idx) => {
-          return (
-            <DisplayUser key={idx} username={user.username} age={user.age} />
-          );
-        })}
+        <Card>
+          {myUsers.map((user, idx) => {
+            return (
+              <DisplayUser key={idx} username={user.username} age={user.age} />
+            );
+          })}
+        </Card>
       </header>
     </div>
   );

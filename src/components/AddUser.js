@@ -90,7 +90,7 @@ const AddUser = (props) => {
   };
 
   return (
-    <div className="card">
+    <>
       <form onSubmit={onSubmit}>
         <label for="uname">Username</label>
         <br />
@@ -117,7 +117,7 @@ const AddUser = (props) => {
 
       <Modal show={showModal.display} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Oh No!</Modal.Title>
         </Modal.Header>
         <Modal.Body>{showModal.text}</Modal.Body>
         <Modal.Footer>
@@ -126,7 +126,7 @@ const AddUser = (props) => {
           </Button>
         </Modal.Footer>
       </Modal>
-    </div>
+    </>
   );
 };
 
