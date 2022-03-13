@@ -1,0 +1,30 @@
+.card {
+  padding: 10px;
+  background-color: #fff;
+  color: #000;
+  width: 60%;
+  border-radius: 10px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+label {
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+  margin: 5px 0px;
+}
+
+input[type="text"] {
+  border: 1px solid rgb(88, 88, 88);
+  width: 100%;
+  padding-left: 10px;
+}
+
+input[type="submit"] {
+  margin-top: 10px;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(79, 46, 139);
+  border-radius: 10px;
+}
