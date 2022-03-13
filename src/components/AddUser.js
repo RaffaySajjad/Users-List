@@ -27,10 +27,21 @@ const AddUser = (props) => {
 
   const validateUser = (user) => {
     if (user.username !== "" && user.age !== "" && !isNaN(parseInt(user.age))) {
-      setShowModal({
-        display: false,
-        text: "",
-      });
+      if (user.age > 0) {
+        setShowModal({
+          display: false,
+          text: "",
+        });
+        return true;
+      } else {
+        // Age is < 1
+        console.log("Age is < 1");
+        setShowModal({
+          display: true,
+          text: "Please enter a valid age (> 0).",
+        });
+        return false;
+      }
     } else {
       // Both are empty
       if (user.username === "" && user.age === "") {
@@ -44,18 +55,19 @@ const AddUser = (props) => {
         console.log("Username is empty");
         setShowModal({
           display: true,
-          text: "Please enter a valid age (> 0).",
+          text: "Please enter a valid username (non-empty values).",
         });
       } else {
         // Age is empty
         console.log("Age is empty");
         setShowModal({
           display: true,
-          text: "Please enter a valid username (non-empty values).",
+          text: "Please enter a valid age (> 0).",
         });
       }
+      return false;
     }
-    console.log("Validation End:", showModal);
+    // console.log("Validation End:", showModal);
   };
 
   const handleClose = () =>
@@ -66,8 +78,8 @@ const AddUser = (props) => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    validateUser(newUser);
-    if (!showModal.display) {
+    const isValid = validateUser(newUser);
+    if (isValid) {
       console.log(showModal.display);
       props.onAddingNewUser(newUser);
       setNewUser({
